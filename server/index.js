@@ -11,10 +11,12 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan("combined"));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/ping", (req, res) => {
+  res.send("pong");
 });
 
 app.listen(3000, () => {
   console.log("App listening on port 3000!");
 });
+
+export default app;
