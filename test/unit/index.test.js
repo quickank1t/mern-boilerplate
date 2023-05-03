@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../../server/index.js";
+import app from "../../server/index";
 
 describe("GET /ping", () => {
   it("Health check", (done) => {
