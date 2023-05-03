@@ -1,8 +1,11 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": ["plugin:node/recommended", "prettier"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"],
-    "import/extensions": [{ "js": "always" }]
+    "import/extensions": ["off"]
+  },
+  "env": {
+    "mocha": true
   }
 }
