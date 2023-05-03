@@ -3,8 +3,6 @@ import bodyParser from "body-parser";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-import * as dotenv from "dotenv";
-dotenv.config();
 
 const app = express();
 
