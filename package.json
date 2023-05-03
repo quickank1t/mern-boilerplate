@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*.test.js --exit",
     "dev": "nodemon ./server/",
     "lint": "eslint ./server/ --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "nyc --reporter=text mocha test/**/*.test.js --exit"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "husky": "^8.0.3",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
+    "nyc": "^15.1.0",
     "prettier": "^2.8.8",
     "supertest": "^6.3.3"
   },
