@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan("combined"));
 
-app.get("/ping", (res) => {
+app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
