@@ -14,4 +14,8 @@ const resetUser = async () => {
   return users;
 };
 
-export { createUser, queryUsers, resetUser };
+const getUserByEmail = async (email) => {
+  return User.findOne({ email });
+};
+
+export { createUser, queryUsers, resetUser, getUserByEmail };
