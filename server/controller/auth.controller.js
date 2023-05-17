@@ -1,3 +1,4 @@
+import httpStatus from "http-status";
 import { authService, tokenService } from "../service/index.js";
 import { catchAsync } from "../utils/catchAsync.js";
 
@@ -8,4 +9,9 @@ const login = catchAsync(async (req, res, next) => {
   res.send({ user, tokens });
 });
 
-export { login };
+const logout = catchAsync(async (req, res) => {
+  await authService.logout(req.body.refreshToken);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
+export { login, logout };
