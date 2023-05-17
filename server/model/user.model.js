@@ -1,24 +1,38 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import { toJSON } from "./plugins/index.js";
+import { roles } from "../config/roles.js";
 
-const userSchema = mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-    lowercase: true,
-    index: true,
+const userSchema = mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
+      index: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: roles,
+      default: "user",
+    },
+    isEmailVerified: {
+      type: Boolean,
+      default: false,
+    },
   },
-  password: {
-    type: String,
-    required: true,
-  },
-  createAt: {
-    type: Date,
-    default: Date.now(),
-  },
-});
+  {
+    timestamps: true,
+  }
+);
+
+userSchema.plugin(toJSON);
 
 userSchema.methods.isPasswordMatch = async function (password) {
   const user = this;

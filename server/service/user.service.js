@@ -18,4 +18,8 @@ const getUserByEmail = async (email) => {
   return User.findOne({ email });
 };
 
-export { createUser, queryUsers, resetUser, getUserByEmail };
+const getUserById = async (id) => {
+  return User.findById(id);
+};
+
+export { createUser, queryUsers, resetUser, getUserByEmail, getUserById };
