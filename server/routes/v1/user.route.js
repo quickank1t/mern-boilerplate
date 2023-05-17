@@ -10,6 +10,6 @@ router
   .post(userController.createUser)
   .delete(userController.resetUser);
 
-router.route("/:userId").get(userController.getUserById);
+router.route("/:userId").get(auth("getUsers"), userController.getUserById);
 
 export default router;
